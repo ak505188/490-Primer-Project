@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void EmptyQuery();
 void Prime();
@@ -16,8 +17,9 @@ int main (){
 		printf("<!DOCTYPE html>\n<html>\n");
 		if (query[0] == '\0')
 			EmptyQuery();
-		else 
-			printf("%s\n", query);
+		else {
+			Prime(atoi(sizeof(char)+strchr(query, (int)'=')));
+		}
 		printf("\n</html>\n");
 	}
 }
@@ -37,7 +39,9 @@ void Prime(int num){
 		if (num % div == 0)
 			prime = 0;
 	}
+	printf("%d is ", num);
 	if (prime == 0)
-		printf("Not prime!\n");
-	else printf("Prime!\n");
+		printf("not ");
+	printf("prime!\n");
+	EmptyQuery();
 }//Prime
